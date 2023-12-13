@@ -7,18 +7,15 @@ void print(int nums[],int n){
     }
 }
 
-void bubbleSort(int nums[],int n){
+void selectionSort(int nums[],int n){
     for(int i=0;i<n;i++){
-        bool flag=true;
-        for(int j=0;j<n-i-1;j++){
-            if(nums[j]>nums[j+1]){
-                swap(nums[j],nums[j+1]);
-                flag=false;
+        int mini=i;
+        for(int j=i+1;j<n;j++){
+            if(nums[mini]>nums[j]){
+                mini=j;
             }
         }
-        if(flag==true){
-            break;
-        }
+        swap(nums[i],nums[mini]);
     }
 }
 
@@ -27,7 +24,7 @@ int main(){
     int size=5;
     print(nums,size);
     cout<<endl;
-    bubbleSort(nums,size);
+    selectionSort(nums,size);
     print(nums,size);
 
     return 0;
